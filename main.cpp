@@ -14,12 +14,16 @@ void printArray(int* data, int length) {
 void actividadPractica4ejercicio1() {
 	//Resolver el siguiente sistema Ax=b aplicando la metodología DSS
 
-	int A[25] = {
-		1, 0, 0, 0, 0,
-		2, 3, 0, 0, 0,
-		4, 0, 5, 0, 0,
-		0, 6, 0, 7, 0,
-		0, 0, 8, 0, 9
+	//int A[25] = {
+	//	1, 0, 0, 0, 0,
+	//	2, 3, 0, 0, 0,
+	//	4, 0, 5, 0, 0,
+	//	0, 6, 0, 7, 0,
+	//	0, 0, 8, 0, 9
+	//};
+
+	int A[9] = {
+		1, 2, 3, 4, 5, 6, 7, 8, 9
 	};
 
 	int B[5] = { 1, 2, 3, 4, 5 };
@@ -31,7 +35,7 @@ void actividadPractica4ejercicio1() {
 	const MKL_INT nonZeroAmount = 9;
 
 	_MKL_DSS_HANDLE_t handle;
-	MKL_INT opt = MKL_DSS_ZERO_BASED_INDEXING;
+	MKL_INT opt = MKL_DSS_ZERO_BASED_INDEXING + MKL_DSS_SINGLE_PRECISION + MKL_DSS_MSG_LVL_WARNING + MKL_DSS_TERM_LVL_ERROR;
 	int info = dss_create(handle, opt);
 	printf("Create: %d\n", info);
 
@@ -44,7 +48,7 @@ void actividadPractica4ejercicio1() {
 	info = dss_reorder(handle, opt, 0);
 	printf("Reorder: %d\n", info);
 
-	opt = MKL_DSS_POSITIVE_DEFINITE;
+	opt = 0;
 	info = dss_factor_real(handle, opt, A);
 	printf("Factor: %d\n", info);
 
