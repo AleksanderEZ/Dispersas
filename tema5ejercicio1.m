@@ -1,5 +1,5 @@
 clear
-A = GenerateSparse(100, 83, .1, 52, 115);
+A = GenerateSparse(7, 7, .4, 52, 115)
 B = GenerateSymmetricSparse(5, .8, 52, 115);
 [row, col, val] = COO( A );
 [rowOff, col, val] = CSR( A );
